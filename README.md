@@ -1,4 +1,4 @@
-This repo displays GRADCAM experiments on ResNet18. Modular code is imported to the Python code to display results.
+This repo displays GRADCAM experiments on ResNet18. Modular code is imported to the Python Notebook *ERA_Assignment_11.ipynb* to display results.
 
 ## Training Logs
 
