@@ -2,26 +2,30 @@ This repo displays GRADCAM experiments on ResNet18. Modular code is imported to 
 
 ## Training Logs
 
-![image](https://github.com/iris-kurapaty/GradCam_Exp/assets/52544352/5bdb2d2c-16dd-43f9-aa60-aa99302279c2)
-![image](https://github.com/iris-kurapaty/GradCam_Exp/assets/52544352/a24b3142-a963-4b9c-9d9f-e2675ab36522)
-![image](https://github.com/iris-kurapaty/GradCam_Exp/assets/52544352/60c6ba8b-e112-411b-bd79-8b7ff77730b6)
-![image](https://github.com/iris-kurapaty/GradCam_Exp/assets/52544352/bddd597a-c02a-4f45-8e13-f23fc2edc752)
+![image](https://github.com/iris-kurapaty/GradCam_Exp/assets/52544352/824c39f3-c54f-4235-9a82-a78036dc1b8f)
+![image](https://github.com/iris-kurapaty/GradCam_Exp/assets/52544352/28f6b602-905c-45ce-bebf-cbdd40b55de0)
+![image](https://github.com/iris-kurapaty/GradCam_Exp/assets/52544352/42c410d9-fee4-4e3f-b496-12598e06103d)
+![image](https://github.com/iris-kurapaty/GradCam_Exp/assets/52544352/2b80398d-27ae-4f13-8beb-cd6001fa543b)
+
 
 ## MissClassified Images
-Plotting some misclassified outputs. 
+Plotting some misclassified outputs.  
 
-![image](https://github.com/iris-kurapaty/GradCam_Exp/assets/52544352/9b95770b-9b8a-4d47-87a1-22fd2ae3c7c9)
-![image](https://github.com/iris-kurapaty/GradCam_Exp/assets/52544352/5386de85-cc99-4dfa-bf8f-ddfd0c5c244e)
-![image](https://github.com/iris-kurapaty/GradCam_Exp/assets/52544352/7d7529e0-dffe-435e-8c53-425cb196de1e)
-![image](https://github.com/iris-kurapaty/GradCam_Exp/assets/52544352/a1b35dc6-92ea-4940-8a3c-eb20d680e3a4)
+![image](https://github.com/iris-kurapaty/GradCam_Exp/assets/52544352/ffa665b3-9d83-4369-85a9-03343e6d9c50)
+![image](https://github.com/iris-kurapaty/GradCam_Exp/assets/52544352/35b73f64-0d2d-4e9b-88d6-311f340c7a19)
+![image](https://github.com/iris-kurapaty/GradCam_Exp/assets/52544352/ad9761de-a5bf-41cb-987e-cab6baae2581)
+![image](https://github.com/iris-kurapaty/GradCam_Exp/assets/52544352/a5197521-4235-4360-829c-2c778561f5b3)
+
 
 
 ## GRADCam Outputs
-For the above images, the GradCam outputs (activations) for a deer are plotted.
-![image](https://github.com/iris-kurapaty/GradCam_Exp/assets/52544352/92e688f6-a54d-4807-b734-c657a0a82859)
+For the above images, the GradCam outputs (activations)are plotted.
+![image](https://github.com/iris-kurapaty/GradCam_Exp/assets/52544352/4968fe3b-4acd-44ae-a5ac-ae9e2191ec8d)
+
 
 ## Training and Test Accuracies
-![image](https://github.com/iris-kurapaty/GradCam_Exp/assets/52544352/7ad1bf2d-30f2-46a7-810e-374200fada4a)
+![image](https://github.com/iris-kurapaty/GradCam_Exp/assets/52544352/6dc1adde-bde6-4b77-98c2-7cec42e1172e)
+
 
 
 
