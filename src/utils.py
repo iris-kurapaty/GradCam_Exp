@@ -5,10 +5,6 @@ from pytorch_grad_cam import GradCAM, HiResCAM, ScoreCAM, GradCAMPlusPlus, Ablat
 from pytorch_grad_cam.utils.model_targets import ClassifierOutputTarget
 from pytorch_grad_cam.utils.image import show_cam_on_image
 
-
-classes = ('plane', 'car', 'bird', 'cat',
-           'deer', 'dog', 'frog', 'horse', 'ship', 'truck')
-
 def plot_loss_acc(train_losses, train_acc, test_losses, test_acc):
   t = [t_items.item() for t_items in train_losses]
   fig, axs = plt.subplots(2,2,figsize=(15,10))
@@ -49,6 +45,10 @@ def num_imshow(img):
     return npimg
 
 def plot_images(incorrect_examples, incorrect_labels,incorrect_pred, num_images):
+
+  classes = ('plane', 'car', 'bird', 'cat',
+           'deer', 'dog', 'frog', 'horse', 'ship', 'truck')
+
   for i in range(1, num_images+1):
     img = incorrect_examples[0][i-1]
     plt.subplot(4, 5, i)
@@ -56,21 +56,22 @@ def plot_images(incorrect_examples, incorrect_labels,incorrect_pred, num_images)
     plt.axis('off')
     plt.title("actual: %s\npredicted: %s" % (classes[incorrect_labels[0][i-1]], classes[incorrect_pred[0][i-1]]), fontsize=8)
     plt.subplots_adjust(top=5, bottom=3, left=1, right=2)
-    return
+  return
 
-def display_gradcam(model, incorrect_examples, num_images, activated_class):
+def display_gradcam(model, incorrect_examples, num_images, inv_normalize, transperancy, targets=None):
   target_layers = [model.layer4[-1]]
-  input_tensor = torch.from_numpy(incorrect_examples[0][:num_images])
   cam = GradCAM(model=model, target_layers=target_layers, use_cuda=True)
-  vlaue = list(classes).index(activated_class)
-  targets = [ClassifierOutputTarget(4)]*input_tensor.shape[0]
-  grayscale_cam = cam(input_tensor=input_tensor, targets=targets,eigen_smooth = True, aug_smooth = True)
+
   f, axes = plt.subplots(nrows=4, ncols=5)
   for i in range(num_images):
     ax = axes.flat[i]
-    grayscale_cam1 = grayscale_cam[i, :]
-    input_img = incorrect_examples[0][i]
-    input_img1 = input_img / 2 + 0.5   
-    input_img2 = np.transpose(input_img1, (1, 2, 0))
-    visualization = show_cam_on_image(np.float32(input_img2)/255, grayscale_cam1, use_rgb=True)
+    input_tensor = torch.from_numpy(incorrect_examples[0][i])
+    input_tensor = input_tensor.unsqueeze(0)
+    grayscale_cam = cam(input_tensor=input_tensor, targets=targets)
+    grayscale_cam = grayscale_cam[0, :]
+    img = input_tensor.squeeze(0).to('cpu')
+    img = inv_normalize(img)
+    rgb_img = np.transpose(img, (1, 2, 0))
+    rgb_img = rgb_img.numpy()    
+    visualization = show_cam_on_image(rgb_img, grayscale_cam, use_rgb=True, image_weight=transperancy)
     ax.imshow(visualization)
